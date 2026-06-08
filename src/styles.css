@@ -1,0 +1,259 @@
+/* =============================================
+   CSS VARIABLES — paleta centralizada.
+   Cambiar aquí afecta TODA la app.
+   ============================================= */
+:root {
+  --bg: #0f0f13;
+  --surface: #1a1a24;
+  --surface2: #252535;
+  --border: #2e2e42;
+  --accent: #6c63ff;
+  --accent-hover: #8b84ff;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --text: #e8e8f0;
+  --text-muted: #8888a8;
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+/* =============================================
+   LAYOUT — Navbar + contenido principal
+   ============================================= */
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; gap: 0.5rem; align-items: center; }
+
+.nav-links a, .nav-links button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.nav-links a:hover, .nav-links button:hover { background: var(--surface2); color: var(--text); }
+.nav-links .active { color: var(--accent); }
+
+#main-content { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+
+/* =============================================
+   TARJETAS Y CONTENEDORES
+   ============================================= */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.page-title {
+  font-family: var(--font-head);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* =============================================
+   FORMULARIOS
+   ============================================= */
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--accent);
+}
+.form-group .error-msg { color: var(--danger); font-size: 0.8rem; margin-top: 0.3rem; display: none; }
+.form-group.has-error input, .form-group.has-error select { border-color: var(--danger); }
+.form-group.has-error .error-msg { display: block; }
+
+/* =============================================
+   BOTONES
+   ============================================= */
+.btn {
+  padding: 0.65rem 1.4rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-danger:hover { opacity: 0.85; }
+.btn-success { background: var(--success); color: #fff; }
+.btn-warning { background: var(--warning); color: #000; }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+.btn-sm { padding: 0.4rem 0.9rem; font-size: 0.8rem; }
+.btn-full { width: 100%; }
+
+/* =============================================
+   TABLA DE RESERVAS
+   ============================================= */
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 0.9rem 1rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+th { color: var(--text-muted); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+tr:hover td { background: var(--surface2); }
+
+/* =============================================
+   BADGES DE ESTADO
+   ============================================= */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.badge-pending  { background: rgba(245,158,11,0.15); color: var(--warning); }
+.badge-approved { background: rgba(34,197,94,0.15);  color: var(--success); }
+.badge-rejected { background: rgba(239,68,68,0.15);  color: var(--danger);  }
+.badge-cancelled{ background: rgba(136,136,168,0.15);color: var(--text-muted); }
+
+/* =============================================
+   LOGIN PAGE
+   ============================================= */
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 30% 50%, rgba(108,99,255,0.12) 0%, transparent 60%);
+}
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem;
+}
+.login-card h1 { font-family: var(--font-head); font-size: 2rem; font-weight: 800; margin-bottom: 0.3rem; }
+.login-card p  { color: var(--text-muted); margin-bottom: 2rem; }
+.login-error { background: rgba(239,68,68,0.1); border: 1px solid var(--danger); color: var(--danger); padding: 0.7rem 1rem; border-radius: 8px; font-size: 0.85rem; margin-bottom: 1rem; display: none; }
+.login-error.show { display: block; }
+
+/* =============================================
+   TOAST NOTIFICATIONS
+   ============================================= */
+#toast-container { position: fixed; bottom: 1.5rem; right: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; z-index: 999; }
+.toast {
+  padding: 0.9rem 1.3rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow);
+  animation: slideIn 0.3s ease;
+  cursor: pointer;
+  max-width: 320px;
+}
+.toast-success { background: var(--success); color: #fff; }
+.toast-error   { background: var(--danger);  color: #fff; }
+.toast-info    { background: var(--accent);  color: #fff; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* =============================================
+   MODAL
+   ============================================= */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 500;
+  animation: fadeIn 0.2s ease;
+}
+.modal-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.modal-header h2 { font-family: var(--font-head); font-size: 1.3rem; }
+.modal-close { background: none; border: none; color: var(--text-muted); font-size: 1.4rem; cursor: pointer; }
+.modal-actions { display: flex; gap: 0.7rem; justify-content: flex-end; margin-top: 1.5rem; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* =============================================
+   STATS GRID (dashboard)
+   ============================================= */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1.5rem; }
+.stat-card .stat-number { font-family: var(--font-head); font-size: 2rem; font-weight: 800; color: var(--accent); }
+.stat-card .stat-label  { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem; }
+
+/* =============================================
+   DENIED PAGE
+   ============================================= */
+.denied-wrapper { text-align: center; padding: 4rem 2rem; }
+.denied-wrapper h1 { font-family: var(--font-head); font-size: 3rem; font-weight: 800; color: var(--danger); }
+.denied-wrapper p  { color: var(--text-muted); margin: 1rem 0 2rem; }
+
+/* UTILITY */
+.flex { display: flex; }
+.gap-1 { gap: 0.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.text-muted { color: var(--text-muted); font-size: 0.9rem; }
+.empty-state { text-align: center; padding: 3rem; color: var(--text-muted); }

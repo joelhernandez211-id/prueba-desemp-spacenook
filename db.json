@@ -1,0 +1,39 @@
+{
+  "users": [
+    { "id": 1, "name": "Admin User", "email": "admin@company.com", "password": "admin123", "role": "admin" },
+    { "id": 2, "name": "Ana García", "email": "ana@company.com", "password": "user123", "role": "user" },
+    { "id": 3, "name": "Carlos López", "email": "carlos@company.com", "password": "user123", "role": "user" }
+  ],
+  "spaces": [
+    { "id": 1, "name": "Sala Alfa", "type": "Sala de reuniones", "capacity": 10, "location": "Piso 2", "status": "available" },
+    { "id": 2, "name": "Oficina Beta", "type": "Oficina privada", "capacity": 4, "location": "Piso 3", "status": "available" },
+    { "id": 3, "name": "Coworking Gamma", "type": "Espacio de coworking", "capacity": 20, "location": "Piso 1", "status": "available" },
+    { "id": 4, "name": "Auditorio Delta", "type": "Auditorio", "capacity": 100, "location": "Planta baja", "status": "available" }
+  ],
+  "reservations": [
+    {
+      "id": 1,
+      "userId": 2,
+      "userName": "Ana García",
+      "spaceId": 1,
+      "spaceName": "Sala Alfa",
+      "date": "2026-06-10",
+      "startTime": "09:00",
+      "endTime": "11:00",
+      "reason": "Reunión de equipo",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "userName": "Carlos López",
+      "spaceId": 3,
+      "spaceName": "Coworking Gamma",
+      "date": "2026-06-10",
+      "startTime": "14:00",
+      "endTime": "17:00",
+      "reason": "Trabajo remoto",
+      "status": "approved"
+    }
+  ]
+}
